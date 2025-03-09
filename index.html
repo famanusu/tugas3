@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Regresi Linear</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .formula {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Perhitungan Koefisien Regresi dan Evaluasi Model</h1>
+
+    <h2>1. Persamaan Regresi Linear</h2>
+    <p>Model regresi linear dinyatakan sebagai:</p>
+    <p class="formula">y = β₀ + β₁x</p>
+
+    <h2>2. Hitung Koefisien Regresi</h2>
+    <table>
+        <tr>
+            <th>Umur Karyawan (X)</th>
+            <th>Tahun Bekerja (Y)</th>
+            <th>X * Y</th>
+            <th>X²</th>
+        </tr>
+        <tr><td>25</td><td>1</td><td>25</td><td>625</td></tr>
+        <tr><td>30</td><td>3</td><td>90</td><td>900</td></tr>
+        <tr><td>35</td><td>5</td><td>175</td><td>1225</td></tr>
+        <tr><td>40</td><td>7</td><td>280</td><td>1600</td></tr>
+        <tr><td>45</td><td>9</td><td>405</td><td>2025</td></tr>
+    </table>
+
+    <p>ΣX = 175, ΣY = 25, ΣXY = 975, ΣX² = 6375, n = 5</p>
+
+    <h3>Hitung β₁:</h3>
+    <p class="formula">β₁ = (nΣXY - ΣXΣY) / (nΣX² - (ΣX)²)</p>
+    <p>β₁ = (5×975 - 175×25) / (5×6375 - 175²)</p>
+    <p>β₁ = (4875 - 4375) / (31875 - 30625) = 500 / 1250 = <b>0.4</b></p>
+
+    <h3>Hitung β₀:</h3>
+    <p class="formula">β₀ = (ΣY - β₁ΣX) / n</p>
+    <p>β₀ = (25 - (0.4 × 175)) / 5</p>
+    <p>β₀ = (25 - 70) / 5 = -45 / 5 = <b>-9</b></p>
+
+    <h3>Persamaan Regresi:</h3>
+    <p class="formula">Y = -9 + 0.4X</p>
+
+    <h2>3. Evaluasi Model (R²)</h2>
+    <h3>Hitung R²:</h3>
+    <p class="formula">R² = 1 - (Σ(yᵢ - ŷᵢ)² / Σ(yᵢ - ȳ)²)</p>
+
+    <table>
+        <tr>
+            <th>X</th>
+            <th>Y (Aktual)</th>
+            <th>Ŷ (Prediksi)</th>
+            <th>(Y - Ŷ)²</th>
+        </tr>
+        <tr><td>25</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>30</td><td>3</td><td>3</td><td>0</td></tr>
+        <tr><td>35</td><td>5</td><td>5</td><td>0</td></tr>
+        <tr><td>40</td><td>7</td><td>7</td><td>0</td></tr>
+        <tr><td>45</td><td>9</td><td>9</td><td>0</td></tr>
+    </table>
+
+    <p>Σ(Y - Ŷ)² = 0, Σ(Y - Ȳ)² = 40</p>
+    <p>R² = 1 - (0 / 40) = <b>1</b></p>
+
+</body>
+</html>
